@@ -10,10 +10,19 @@ opts@{ rev ? false, dirtyRev ? false }:
   # Necessary for using flakes on this system.
   nix.settings.experimental-features = "nix-command flakes";
 
-  # Create /etc/zshrc that loads the nix-darwin environment.
+  dock.autohide = true;
+  dock.mru-spaces = true;
+  finder.AppleShowAllExtensions = true;
+  finder.FXPreferredViewStyle = "clmv";
+  loginwindow.LoginwindowText = builtins.abort "TODO LoginwindowText";
   programs.bash.enable = true;
   programs.fish.enable = true;
-  programs.zsh.enable = true;  # default shell on catalina
+  # programs.zsh.enable = true;  # default shell on catalina
+  screencapture.location = "~/Pictures/screenshots";
+  screensaver.askForPasswordDelay = 7;
+
+  # enable sudo auth via touch id
+  # security.pam.services.sudo_local.touchIdAuth = true;
 
   # Set Git commit hash for darwin-version.
   system.configurationRevision = opts.rev or opts.dirtyRev or null;
