@@ -18,13 +18,14 @@
     }:
     {
       darwinConfigurations = let
+        loginwindowText = builtins.abort "TODO LoginwindowText";
         myhostname = builtins.abort "TODO set correct 'myhostname'";
         user = builtins.abort "TODO: set proper username";
       in {
         ${myhostname} = nix-darwin.lib.darwinSystem {
           system = "aarch64-darwin";
           modules = [
-            (./configuration.nix { inherit (self) rev dirtyRev; })
+            (./configuration.nix { inherit (self) rev dirtyRev; inherit loginwindowText; })
             home-manager.darwinModules.home-manager
             {
               home-manager.useGlobalPkgs = true;

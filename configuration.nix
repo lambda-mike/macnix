@@ -1,4 +1,4 @@
-opts@{ rev ? false, dirtyRev ? false }:
+opts@{ rev ? false, dirtyRev ? false, loginwindowText }:
 { pkgs, ... }: {
   environment.systemPackages = [
     pkgs.vim
@@ -14,7 +14,7 @@ opts@{ rev ? false, dirtyRev ? false }:
   dock.mru-spaces = true;
   finder.AppleShowAllExtensions = true;
   finder.FXPreferredViewStyle = "clmv";
-  loginwindow.LoginwindowText = builtins.abort "TODO LoginwindowText";
+  loginwindow.LoginwindowText = loginwindowText;
   programs.bash.enable = true;
   programs.fish.enable = true;
   # programs.zsh.enable = true;  # default shell on catalina
