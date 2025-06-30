@@ -1,4 +1,4 @@
-opts@{ rev ? false, dirtyRev ? false, loginwindowText }:
+opts@{ rev, dirtyRev, loginwindowText }:
 { pkgs, ... }: {
   environment.systemPackages = [
     pkgs.vim
