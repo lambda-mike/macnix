@@ -16,8 +16,22 @@ Set up Nix on MacOS using nix-darwin and home-manager with flakes:
 
 2. Test by running: `nix run "nixpkgs#hello"`
 
-3. Set up Mac by running: `darwin-rebuild switch --flake <flake-uri>.`
+3. Set up Mac by running: `darwin-rebuild switch --flake <flake-uri>`
 
 `<flake-uri>` could be: `~/macnix.#myhostname`
 
-4. To update flake inputs run: `nix flake update` or more granularly: `nix flake lock --update-input <input>`
+In order to run nix-darwin without installing it first: `nix run nix-darwin -- switch --flake <flake-uri>`
+
+## Update
+
+To update the system: 
+
+1. `nix flake update`
+
+2. `darwin-rebuild switch --flake <flake-uri>`
+
+`<flake-uri>` could be: `~/macnix.#myhostname`
+
+To update flake inputs more granularly: `nix flake lock --update-input <input>`
+
+In Git repo: `nix flake update --commit-lock-file` can automatically commit the lock file changes.
