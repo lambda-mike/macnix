@@ -1,5 +1,5 @@
 {
-  description = "MacNix Darwin configuration";
+  description = "MacNix configuration";
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";

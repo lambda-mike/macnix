@@ -1,7 +1,6 @@
 opts@{ rev, dirtyRev, loginwindowText }:
 { pkgs, ... }: {
   environment.systemPackages = [
-    pkgs.vim
   ];
 
   # Auto upgrade nix package 
@@ -16,51 +15,67 @@ opts@{ rev, dirtyRev, loginwindowText }:
   # power.sleep.computer = 10;
   # power.sleep.display = 7;
 
-  dock.autohide = true;
-  dock.mru-spaces = true;
-  finder.AppleShowAllExtensions = true;
-  finder.FXPreferredViewStyle = "clmv";
-  loginwindow.LoginwindowText = loginwindowText;
-  programs.bash.enable = true;
-  # programs.direnv.enable = true;
-  programs.fish.enable = true;
-  # programs.vim.enable = enable;
-  # programs.vim.enableSensible = true;
-  # programs.zsh.enable = true;  # default shell on catalina
-  screencapture.location = "~/Pictures/screenshots";
-  screensaver.askForPasswordDelay = 7;
-  # services.prometheus.exporters.node.enable
-  # system.defaults.".GlobalPreferences"."com.apple.sound.beep.sound" = /System/Library/Sounds/;
-  # system.defaults.ActivityMonitor.IconType = 5;
-  # system.defaults.NSGlobalDomain.AppleInterfaceStyle = "Dark";
-  # system.defaults.NSGlobalDomain.InitialKeyRepeat = 200;
-  # system.defaults.NSGlobalDomain.KeyRepeat = 100;
-  # system.defaults.NSGlobalDomain.NSScrollAnimationEnabled = true;
-  # system.defaults.NSGlobalDomain.NSTableViewDefaultSizeMode = 2;
-  # system.defaults.NSGlobalDomain."com.apple.keyboard.fnState" = true;
-  # system.defaults.NSGlobalDomain."com.apple.mouse.tapBehavior" = 1;
-  # system.defaults.NSGlobalDomain."com.apple.swipescrolldirection" = false;
-  # system.defaults.WindowManager.EnableStandardClickToShowDesktop = true;
-  # system.defaults.WindowManager.GloballyEnabled = true;
-  # system.defaults.controlcenter.BatteryShowPercentage = true;
-  # system.defaults.dock.appswitcher-all-displays = true;
-  # system.defaults.dock.autohide = true;
-  # system.defaults.finder.ShowPathbar = true;
-  # system.defaults.finder.ShowStatusBar = true;
-  # system.defaults.magicmouse.MouseButtonMode = "TwoButton";
-  # system.defaults.menuExtraClock.Show24Hour = true;
-  # system.defaults.menuExtraClock.ShowDate = 0; # or 1
-  # system.defaults.screencapture.include-date = true;
-  # system.defaults.screencapture.location = "/TODO";
-  # system.defaults.screensaver.askForPassword = true;
-  # system.defaults.trackpad.Dragging = true;
-  # system.defaults.trackpad.TrackpadRightClick = true;
-  # system.defaults.trackpad.TrackpadThreeFingerDrag = true;
+  system.defaults = {
+    # dock.autohide = true;
+    # dock.mru-spaces = true;
+    # finder.AppleShowAllExtensions = true;
+    finder.FXPreferredViewStyle = "clmv";
+    fonts.packages = with pkgs; [
+      jetbrains-mono
+      nerd-fonts.nerd-fonts-_3270
+      nerd-fonts.nerd-fonts-agave
+      nerd-fonts.nerd-fonts-hack
+      nerd-fonts.nerd-fonts-cousine
+      nerd-fonts.nerd-fonts-fira-mono
+      nerd-fonts.nerd-fonts-hurmit
+      nerd-fonts.nerd-fonts-iosevka
+      nerd-fonts.nerd-fonts-mononoki
+      nerd-fonts.nerd-fonts-roboto-mono
+      nerd-fonts.nerd-fonts-terminess-ttf
+      nerd-fonts.nerd-fonts-ubuntu-mono
+    ];
+    loginwindow.LoginwindowText = loginwindowText;
+    programs.bash.enable = true;
+    programs.direnv.enable = true;
+    programs.fish.enable = true;
+    programs.vim.enable = true;
+    programs.vim.enableSensible = true;
+    # programs.zsh.enable = true;  # default shell on catalina
+    screencapture.location = "~/Pictures/screenshots";
+    # services.prometheus.exporters.node.enable
+    # ".GlobalPreferences"."com.apple.sound.beep.sound" = /System/Library/Sounds/;
+    # ActivityMonitor.IconType = 5;
+    # NSGlobalDomain.AppleInterfaceStyle = "Dark";
+    # NSGlobalDomain.InitialKeyRepeat = 200;
+    # NSGlobalDomain.KeyRepeat = 100;
+    # NSGlobalDomain.NSScrollAnimationEnabled = true;
+    # NSGlobalDomain.NSTableViewDefaultSizeMode = 2;
+    # NSGlobalDomain."com.apple.keyboard.fnState" = true;
+    # NSGlobalDomain."com.apple.mouse.tapBehavior" = 1;
+    # NSGlobalDomain."com.apple.swipescrolldirection" = false;
+    # WindowManager.EnableStandardClickToShowDesktop = true;
+    # WindowManager.GloballyEnabled = true;
+    # controlcenter.BatteryShowPercentage = true;
+    # dock.appswitcher-all-displays = true;
+    # dock.autohide = true;
+    # finder.ShowPathbar = true;
+    # finder.ShowStatusBar = true;
+    # magicmouse.MouseButtonMode = "TwoButton";
+    # menuExtraClock.Show24Hour = true;
+    # menuExtraClock.ShowDate = 0; # or 1
+    # screencapture.include-date = true;
+    # screencapture.location = "/TODO";
+    # screensaver.askForPassword = true;
+    # screensaver.askForPasswordDelay = 7;
+    # trackpad.Dragging = true;
+    # trackpad.TrackpadRightClick = true;
+    # trackpad.TrackpadThreeFingerDrag = true;
+  };
   # system.keyboard.enableKeyMapping = true;
   # system.keyboard.swapLeftCtrlAndFn = true;
 
   # enable sudo auth via touch id
-  # security.pam.services.sudo_local.touchIdAuth = true;
+  security.pam.services.sudo_local.touchIdAuth = true;
 
   # Set Git commit hash for darwin-version.
   system.configurationRevision = opts.rev or opts.dirtyRev or null;
