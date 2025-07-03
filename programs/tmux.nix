@@ -28,6 +28,7 @@ set-option -ga terminal-overrides ',*256col*:Tc'
             extraConfig = "set -g @resurrect-strategy-nvim 'session'";
           }
         ];
+        shell = "${pkgs.fish}/bin/fish";
         terminal = "xterm-256color";
       };
   };
