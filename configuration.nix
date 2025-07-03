@@ -76,7 +76,7 @@ opts@{ rev, dirtyRev, loginwindowText, user }:
     trackpad.TrackpadThreeFingerDrag = true;
   };
   system.keyboard.enableKeyMapping = true;
-  system.keyboard.swapLeftCtrlAndFn = true;
+  # system.keyboard.swapLeftCtrlAndFn = true;
 
   # enable sudo auth via touch id
   security.pam.services.sudo_local.touchIdAuth = true;
