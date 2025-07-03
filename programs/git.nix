@@ -1,9 +1,15 @@
+{ blockedBranch }:
 { config, lib, pkgs, ... }:
 
 # FIXME
 # to overwrite ssh key in given git repo, add to its local config:
 # sshCommand = ssh -i ~/.ssh/key
-{
+let prePushBlockBranchScriptText =
+    builtins.replaceStrings
+      [ "%BRANCH%" ]
+      [ blockedBranch ]
+      (builtins.readFile ../scripts/git_block_branch.sh);
+in {
   programs = {
     git = {
       enable = true;
@@ -18,8 +24,11 @@
         st = "status";
         s = "status -s";
       };
-      userName = "M";
-      userEmail = "M@M.com";
+      hooks = {
+        pre-push = pkgs.writeText "git-pre-push.sh" prePushBlockBranchScriptText;
+      };
+      userName = "TODO";
+      userEmail = "todo@todo.com";
     };
   };
 }

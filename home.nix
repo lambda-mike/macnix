@@ -1,11 +1,11 @@
-{ user }:
+{ blockedBranch, user }:
 { config, pkgs, ... }:
 
 {
   imports = [
     # ./programs/alacritty.nix
     ./programs/fish.nix
-    ./programs/git.nix
+    (import ./programs/git.nix { inherit blockedBranch; })
     # ./programs/kakoune.nix
     # ./programs/keychain.nix
     # ./programs/neovim.nix
