@@ -10,11 +10,9 @@ opts@{ rev, dirtyRev, loginwindowText, user }:
   # Necessary for using flakes on this system.
   nix.settings.experimental-features = "nix-command flakes";
 
-  # environment.variables
-  # fonts.packages
-  # power.sleep.allowSleepByPowerButton = true;
-  # power.sleep.computer = 10;
-  # power.sleep.display = 7;
+  environment.variables = {
+    EDITOR = "hx";
+  };
 
   fonts.packages = with pkgs; [
     jetbrains-mono
@@ -32,6 +30,10 @@ opts@{ rev, dirtyRev, loginwindowText, user }:
     nerd-fonts.ubuntu-mono
   ];
 
+  power.sleep.allowSleepByPowerButton = true;
+  power.sleep.computer = 10;
+  power.sleep.display = 7;
+
   programs.bash.enable = true;
   programs.direnv.enable = true;
   programs.fish.enable = true;
@@ -40,41 +42,41 @@ opts@{ rev, dirtyRev, loginwindowText, user }:
   # programs.zsh.enable = true;  # default shell on catalina
 
   system.defaults = {
-    # finder.AppleShowAllExtensions = true;
+    finder.AppleShowAllExtensions = true;
     finder.FXPreferredViewStyle = "clmv";
     loginwindow.LoginwindowText = loginwindowText;
     # services.prometheus.exporters.node.enable
     # ".GlobalPreferences"."com.apple.sound.beep.sound" = /System/Library/Sounds/;
-    # ActivityMonitor.IconType = 5;
-    # NSGlobalDomain.AppleInterfaceStyle = "Dark";
+    ActivityMonitor.IconType = 5;
+    NSGlobalDomain.AppleInterfaceStyle = "Dark";
     # NSGlobalDomain.InitialKeyRepeat = 200;
     # NSGlobalDomain.KeyRepeat = 100;
-    # NSGlobalDomain.NSScrollAnimationEnabled = true;
-    # NSGlobalDomain.NSTableViewDefaultSizeMode = 2;
-    # NSGlobalDomain."com.apple.keyboard.fnState" = true;
-    # NSGlobalDomain."com.apple.mouse.tapBehavior" = 1;
-    # NSGlobalDomain."com.apple.swipescrolldirection" = false;
-    # WindowManager.EnableStandardClickToShowDesktop = true;
+    NSGlobalDomain.NSScrollAnimationEnabled = true;
+    NSGlobalDomain.NSTableViewDefaultSizeMode = 2;
+    NSGlobalDomain."com.apple.keyboard.fnState" = true;
+    NSGlobalDomain."com.apple.mouse.tapBehavior" = 1;
+    NSGlobalDomain."com.apple.swipescrolldirection" = false;
+    WindowManager.EnableStandardClickToShowDesktop = true;
     # WindowManager.GloballyEnabled = true;
-    # controlcenter.BatteryShowPercentage = true;
+    controlcenter.BatteryShowPercentage = true;
     # dock.appswitcher-all-displays = true;
-    # dock.autohide = true;
-    # dock.mru-spaces = true;
-    # finder.ShowPathbar = true;
-    # finder.ShowStatusBar = true;
-    # magicmouse.MouseButtonMode = "TwoButton";
-    # menuExtraClock.Show24Hour = true;
-    # menuExtraClock.ShowDate = 0; # or 1
-    # screencapture.include-date = true;
+    dock.autohide = true;
+    dock.mru-spaces = false;
+    finder.ShowPathbar = true;
+    finder.ShowStatusBar = true;
+    magicmouse.MouseButtonMode = "TwoButton";
+    menuExtraClock.Show24Hour = true;
+    menuExtraClock.ShowDate = 0; # or 1
+    screencapture.include-date = true;
     # screencapture.location = "/TODO";
-    # screensaver.askForPassword = true;
-    # screensaver.askForPasswordDelay = 7;
-    # trackpad.Dragging = true;
-    # trackpad.TrackpadRightClick = true;
-    # trackpad.TrackpadThreeFingerDrag = true;
+    screensaver.askForPassword = true;
+    screensaver.askForPasswordDelay = 7;
+    trackpad.Dragging = true;
+    trackpad.TrackpadRightClick = true;
+    trackpad.TrackpadThreeFingerDrag = true;
   };
-  # system.keyboard.enableKeyMapping = true;
-  # system.keyboard.swapLeftCtrlAndFn = true;
+  system.keyboard.enableKeyMapping = true;
+  system.keyboard.swapLeftCtrlAndFn = true;
 
   # enable sudo auth via touch id
   security.pam.services.sudo_local.touchIdAuth = true;
