@@ -1,6 +1,5 @@
 { pkgs, ... }:
 {
-  # autorandr.enable = true;
   # bash = {
   #   enable = true;
   #   bashrcExtra = ''
@@ -14,33 +13,18 @@
   bottom.enable = true;
   # broot.enable = true;
   # chromium.enable = true;
-  # direnv = {
-  #   enable = true;
-  #   enableZshIntegration = false;
-  #   nix-direnv.enable = true;
-  # };
   # emacs.enable = true;
-  # eza = {
-  #   enable = true;
-  #   git = true;
-  #   icons = "auto";
-  # };
-  # feh.enable = true;
-  # firefox.enable = true;
+  eza = {
+    enable = true;
+    git = true;
+    icons = "auto";
+  };
   # gpg.enable = true;
   helix = import ./helix.nix;
-  # htop.enable = true;
   jq.enable = true;
-  # obs-studio.enable = true;
-  # rofi = {
-  #   enable = true;
-  #   font = "${theme.font} 14";
-  #   theme = theme.rofi;
-  # };
-  # skim.enable = true;
+  skim.enable = true;
   # tealdeer.enable = true;
   # vscode.enable = true;
-  # zathura.enable = true;
   # zellij.enable = true;
   zoxide = {
     enable = true;

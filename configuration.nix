@@ -40,8 +40,6 @@ opts@{ rev, dirtyRev, loginwindowText, user }:
   # programs.zsh.enable = true;  # default shell on catalina
 
   system.defaults = {
-    # dock.autohide = true;
-    # dock.mru-spaces = true;
     # finder.AppleShowAllExtensions = true;
     finder.FXPreferredViewStyle = "clmv";
     loginwindow.LoginwindowText = loginwindowText;
@@ -61,6 +59,7 @@ opts@{ rev, dirtyRev, loginwindowText, user }:
     # controlcenter.BatteryShowPercentage = true;
     # dock.appswitcher-all-displays = true;
     # dock.autohide = true;
+    # dock.mru-spaces = true;
     # finder.ShowPathbar = true;
     # finder.ShowStatusBar = true;
     # magicmouse.MouseButtonMode = "TwoButton";

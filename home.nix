@@ -3,20 +3,17 @@
 
 {
   imports = [
-    # ./programs/alacritty.nix
+    ./programs/alacritty.nix
     ./programs/fish.nix
     (import ./programs/git.nix { inherit blockedBranch; })
-    # ./programs/kakoune.nix
     # ./programs/keychain.nix
-    # ./programs/neovim.nix
     # ./programs/ssh.nix
-    # ./programs/tmux.nix
+    ./programs/tmux.nix
     # ./services/gpg-agent.nix
   ];
 
   home = {
     username = user;
-    # homeDirectory = (/. + builtins.toPath "/Users/${user}");
     # file = import ./homeFile.nix { inherit config; };
     packages = import ./core/packages.nix { inherit pkgs; } ++ (with pkgs; [
     ]);
