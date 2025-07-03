@@ -52,7 +52,7 @@
             #normal.family = "LiberationMono";
             size = 12;
           };
-          shell.program = "${pkgs.fish}/bin/fish";
+          terminal.shell.program = "${pkgs.fish}/bin/fish";
         };
       };
   };
