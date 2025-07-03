@@ -22,16 +22,29 @@ Set up Nix on MacOS using nix-darwin and home-manager with flakes:
 
 In order to run nix-darwin without installing it first: `nix run nix-darwin -- switch --flake <flake-uri>`
 
+Once you need `sudo` when installing for the first time, the simplest probably is:
+
+```bash
+nix shell nix-darwin
+sudo darwin-rebuild switch --flake <flake-uri>
+```
+
 ## Update
 
-To update the system: 
+### nix-darwin
 
 1. `nix flake update`
 
+In Git repo: `nix flake update --commit-lock-file` can automatically commit the lock file changes.
+
 2. `darwin-rebuild switch --flake <flake-uri>`
 
-`<flake-uri>` could be: `~/macnix.#myhostname`
+`<flake-uri>` could be: `~/macnix.#myhostname` or simply `.` when running from flake root folder.
 
 To update flake inputs more granularly: `nix flake lock --update-input <input>`
 
-In Git repo: `nix flake update --commit-lock-file` can automatically commit the lock file changes.
+### nix
+
+Use determinate nix daemon to ugrade nix:
+
+`sudo determinate-nixd upgrade`
