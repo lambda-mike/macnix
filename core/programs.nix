@@ -37,9 +37,9 @@
   #   font = "${theme.font} 14";
   #   theme = theme.rofi;
   # };
-  skim.enable = true;
-  tealdeer.enable = true;
-  vscode.enable = true;
+  # skim.enable = true;
+  # tealdeer.enable = true;
+  # vscode.enable = true;
   # zathura.enable = true;
   # zellij.enable = true;
   zoxide = {

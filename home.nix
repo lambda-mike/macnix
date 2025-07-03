@@ -3,20 +3,20 @@
 
 {
   imports = [
-    ./programs/alacritty.nix
+    # ./programs/alacritty.nix
     ./programs/fish.nix
     ./programs/git.nix
     # ./programs/kakoune.nix
     # ./programs/keychain.nix
     # ./programs/neovim.nix
     # ./programs/ssh.nix
-    ./programs/tmux.nix
+    # ./programs/tmux.nix
     # ./services/gpg-agent.nix
   ];
 
   home = {
     username = user;
-    homeDirectory = "/home/${user}";
+    # homeDirectory = (/. + builtins.toPath "/Users/${user}");
     # file = import ./homeFile.nix { inherit config; };
     packages = import ./core/packages.nix { inherit pkgs; } ++ (with pkgs; [
     ]);
@@ -32,12 +32,8 @@
     # You can update Home Manager without changing this value. See
     # the Home Manager release notes for a list of state version
     # changes in each release.
-    home.stateVersion = "25.05";
+    stateVersion = "25.05";
   };
-
-  nixpkgs.overlays = [ ];
-
-  # fonts.fontconfig.enable = true;
 
   programs = import ./core/programs.nix { inherit pkgs; } // {
     # Overwrite programs here

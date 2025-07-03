@@ -9,27 +9,27 @@
   # appimage-run
   # bandwhich
   # pkgsUnstable.bazecor
-  brave
+  # brave
   # cmus
   # cryfs
   # dasel
-  delta
+  # delta
   # docker
-  du-dust
-  duf
-  fd
-  file
+  # du-dust
+  # duf
+  # fd
+  # file
   # font-awesome
-  gimp
+  # gimp
   # git-crypt
   # gnome.simple-scan
   # grex
   # i3lock
-  julia
+  # julia
   # leftwm
   # libreoffice
   # lsof
-  neofetch
+  # neofetch
   # (nerdfonts.override { fonts = [
   #   "Agave" "CascadiaCode" "Cousine" "FiraMono" "Hack" "Hermit" "Iosevka" "JetBrainsMono"
   #   "Monofur" "Mononoki" "RobotoMono" "SourceCodePro" "Terminus" "UbuntuMono"
@@ -38,8 +38,8 @@
   # nil
   nixfmt-classic
   # nnn
-  nodePackages.eslint
-  nodePackages.typescript-language-server
+  # nodePackages.eslint
+  # nodePackages.typescript-language-server
   # pciutils
   # pinentry
   # procs
@@ -49,11 +49,11 @@
   ripgrep
   # rustup
   # scrot
-  screen
-  shellcheck
-  tokei
-  tree
-  unzip
+  # screen
+  # shellcheck
+  # tokei
+  # tree
+  # unzip
   # xfce.xfce4-terminal
   # xorg.xbacklight
   # xorg.xdpyinfo

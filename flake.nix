@@ -25,12 +25,12 @@
         ${myhostname} = nix-darwin.lib.darwinSystem {
           system = "aarch64-darwin";
           modules = [
-            (./configuration.nix { inherit (self) rev dirtyRev; inherit loginwindowText; })
+            (import ./configuration.nix { inherit (self) rev dirtyRev; inherit loginwindowText user; })
             home-manager.darwinModules.home-manager
             {
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
-              home-manager.users.${user} = (./home.nix { inherit user; });
+              home-manager.users.${user} = (import ./home.nix { inherit user; });
 
               # Optionally, use home-manager.extraSpecialArgs to pass
               # arguments to home.nix

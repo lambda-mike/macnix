@@ -1,4 +1,4 @@
-opts@{ rev, dirtyRev, loginwindowText }:
+opts@{ rev, dirtyRev, loginwindowText, user }:
 { pkgs, ... }: {
   environment.systemPackages = [
   ];
@@ -6,6 +6,7 @@ opts@{ rev, dirtyRev, loginwindowText }:
   # Auto upgrade nix package 
   # nix.package = pkgs.nix;
 
+  nix.enable = false;
   # Necessary for using flakes on this system.
   nix.settings.experimental-features = "nix-command flakes";
 
@@ -15,33 +16,35 @@ opts@{ rev, dirtyRev, loginwindowText }:
   # power.sleep.computer = 10;
   # power.sleep.display = 7;
 
+  fonts.packages = with pkgs; [
+    jetbrains-mono
+    nerd-fonts._3270
+    nerd-fonts.agave
+    nerd-fonts.hack
+    nerd-fonts.cousine
+    nerd-fonts.fira-mono
+    nerd-fonts.hurmit
+    nerd-fonts.iosevka
+    nerd-fonts.mononoki
+    nerd-fonts.roboto-mono
+    nerd-fonts.sauce-code-pro
+    nerd-fonts.terminess-ttf
+    nerd-fonts.ubuntu-mono
+  ];
+
+  programs.bash.enable = true;
+  programs.direnv.enable = true;
+  programs.fish.enable = true;
+  # programs.vim.enable = true;
+  # programs.vim.enableSensible = true;
+  # programs.zsh.enable = true;  # default shell on catalina
+
   system.defaults = {
     # dock.autohide = true;
     # dock.mru-spaces = true;
     # finder.AppleShowAllExtensions = true;
     finder.FXPreferredViewStyle = "clmv";
-    fonts.packages = with pkgs; [
-      jetbrains-mono
-      nerd-fonts.nerd-fonts-_3270
-      nerd-fonts.nerd-fonts-agave
-      nerd-fonts.nerd-fonts-hack
-      nerd-fonts.nerd-fonts-cousine
-      nerd-fonts.nerd-fonts-fira-mono
-      nerd-fonts.nerd-fonts-hurmit
-      nerd-fonts.nerd-fonts-iosevka
-      nerd-fonts.nerd-fonts-mononoki
-      nerd-fonts.nerd-fonts-roboto-mono
-      nerd-fonts.nerd-fonts-terminess-ttf
-      nerd-fonts.nerd-fonts-ubuntu-mono
-    ];
     loginwindow.LoginwindowText = loginwindowText;
-    programs.bash.enable = true;
-    programs.direnv.enable = true;
-    programs.fish.enable = true;
-    programs.vim.enable = true;
-    programs.vim.enableSensible = true;
-    # programs.zsh.enable = true;  # default shell on catalina
-    screencapture.location = "~/Pictures/screenshots";
     # services.prometheus.exporters.node.enable
     # ".GlobalPreferences"."com.apple.sound.beep.sound" = /System/Library/Sounds/;
     # ActivityMonitor.IconType = 5;
@@ -76,6 +79,11 @@ opts@{ rev, dirtyRev, loginwindowText }:
 
   # enable sudo auth via touch id
   security.pam.services.sudo_local.touchIdAuth = true;
+
+  users.users.${user}.home = /. + builtins.toPath "/Users/${user}";
+
+  # temporary until nix-darwin releases multi-user support out of the box
+  system.primaryUser = user;
 
   # Set Git commit hash for darwin-version.
   system.configurationRevision = opts.rev or opts.dirtyRev or null;
