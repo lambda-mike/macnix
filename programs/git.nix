@@ -25,7 +25,7 @@ in {
         s = "status -s";
       };
       hooks = {
-        pre-push = pkgs.writeText "git-pre-push.sh" prePushBlockBranchScriptText;
+        pre-push = pkgs.writeShellScript "git-pre-push.sh" prePushBlockBranchScriptText;
       };
       userName = "TODO";
       userEmail = "todo@todo.com";
