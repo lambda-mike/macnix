@@ -23,9 +23,8 @@
   helix = import ./helix.nix;
   jq.enable = true;
   skim.enable = true;
-  # tealdeer.enable = true;
+  tealdeer.enable = true;
   # vscode.enable = true;
-  # zellij.enable = true;
   zoxide = {
     enable = true;
     enableBashIntegration = true;
