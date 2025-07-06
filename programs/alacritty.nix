@@ -7,7 +7,7 @@
         settings = {
           env = {
             # for NeoVim to display colours correctly
-            TERM = "xterm-256color";
+            # TERM = "xterm-256color";
           };
           window = {
             padding = {

@@ -29,7 +29,7 @@ set-option -ga terminal-overrides ',*256col*:Tc'
           }
         ];
         shell = "${pkgs.fish}/bin/fish";
-        terminal = "xterm-256color";
+        # terminal = "xterm-256color";
       };
   };
 }
