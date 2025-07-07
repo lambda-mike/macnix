@@ -10,6 +10,7 @@
     # ./programs/ssh.nix
     ./programs/tmux.nix
     # ./services/gpg-agent.nix
+    ./xdg.nix
   ];
 
   home = {
