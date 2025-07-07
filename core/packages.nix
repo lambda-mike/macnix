@@ -6,6 +6,7 @@
   # pkgsUnstable = import nixpkgsUnstable {};
 # in (with pkgs; [
 (with pkgs; [
+  azure-cli
   # bandwhich
   # brave
   delta

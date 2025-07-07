@@ -38,7 +38,6 @@
     home-manager.enable = true;
   };
 
-  # FIXME create keys.nix
   # FIXME programs.git.userName
   # FIXME programs.git.userEmail
 }
