@@ -11,7 +11,7 @@
     git = true;
     icons = "auto";
   };
-  # gpg.enable = true;
+  gpg.enable = true;
   helix = import ./helix.nix;
   jq.enable = true;
   skim.enable = true;
