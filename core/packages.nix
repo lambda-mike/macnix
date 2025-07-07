@@ -6,17 +6,15 @@
   # pkgsUnstable = import nixpkgsUnstable {};
 # in (with pkgs; [
 (with pkgs; [
-  # appimage-run
   # bandwhich
   # brave
   delta
-  # docker
   du-dust
   duf
   fd
   font-awesome
   # gimp
-  # git-crypt
+  git-crypt
   # grex
   neofetch
   nil
