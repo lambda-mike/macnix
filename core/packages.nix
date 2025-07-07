@@ -22,10 +22,10 @@
   # nnn
   nodePackages.eslint
   nodePackages.typescript-language-server
+  pnpm
   # procs
   # python3
   # qrencode
-  # qview
   ripgrep
   # rustup
   screen
