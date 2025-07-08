@@ -10,10 +10,12 @@
             # TERM = "xterm-256color";
           };
           window = {
+            option_as_alt = "Both";
             padding = {
               x = 1;
               y = 1;
             };
+            startup_mode = "Maximized";
           };
           colors.draw_bold_text_with_bright_colors = true;
           # Kitty
