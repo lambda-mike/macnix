@@ -1,4 +1,3 @@
-{ blockedBranch }:
 { config, lib, pkgs, ... }:
 
 # to overwrite ssh key in given git repo, add to its local config:
