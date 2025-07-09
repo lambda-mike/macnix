@@ -16,6 +16,7 @@
   font-awesome
   # gimp
   git-crypt
+  glab
   # grex
   neofetch
   nil
