@@ -18,6 +18,7 @@
     }:
     {
       darwinConfigurations = let
+        helixTheme = "catppuccin_mocha";
         loginwindowText = builtins.abort "TODO LoginwindowText";
         myhostname = builtins.abort "TODO set correct 'myhostname'";
         user = builtins.abort "TODO: set proper username";
@@ -30,7 +31,7 @@
             {
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
-              home-manager.users.${user} = (import ./home.nix { inherit blockedBranch user; });
+              home-manager.users.${user} = (import ./home.nix { inherit helixTheme user; });
 
               # Optionally, use home-manager.extraSpecialArgs to pass
               # arguments to home.nix

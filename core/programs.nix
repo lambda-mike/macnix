@@ -13,7 +13,6 @@
     icons = "auto";
   };
   gpg.enable = true;
-  helix = import ./helix.nix;
   jq.enable = true;
   skim.enable = true;
   tealdeer.enable = true;

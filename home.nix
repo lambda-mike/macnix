@@ -1,10 +1,11 @@
-{ blockedBranch, user }:
+{ blockedBranch, user, helixTheme }:
 { config, pkgs, ... }:
 
 {
   imports = [
     ./programs/alacritty.nix
     ./programs/fish.nix
+    (import ./programs/helix.nix { theme = helixTheme; })
     (import ./programs/git.nix { inherit blockedBranch; })
     # ./programs/keychain.nix
     # ./programs/ssh.nix
