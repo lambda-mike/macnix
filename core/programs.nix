@@ -5,6 +5,7 @@
     config = { pager = "less -FR"; theme = "1337"; };
   };
   bottom.enable = true;
+  bun.enable = true;
   emacs.enable = true;
   eza = {
     enable = true;
