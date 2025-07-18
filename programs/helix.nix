@@ -55,7 +55,7 @@
             space.w.c = "wclose";
             space.c = "toggle_comments";
             space.m.i = ":toggle-option lsp.display-inlay-hints";
-            space.m.f = ":pipe pnpm exec prettier --parser typescript";
+            space.m.f = ":pipe pnpm exec prettier --parser typescript --loglevel silent";
             space.m.r = ":reflow 80";
             "C-/" = "toggle_comments";
             "A-/" = "toggle_comments";
@@ -74,12 +74,11 @@
       languages = {
         language-server = {
           eslint = {
-            command = "eslint";
+            command = "vscode-eslint-language-server";
             args = ["--stdio"];
             config = {
               experimental = { useFlatConfig = false; };
-              format = false;
-              onIgnoredFiles = "off";
+              # onIgnoredFiles = "off";
               problems = { shortenToSingleLine = false; };
               quiet = false;
               rulesCustomizations = [];
@@ -87,13 +86,15 @@
               run = "onType";
               # Commenting out this line causes the language-server to crash
               nodePath = "";
-              # The documentation says this is "legacy", but without it it doesn't work
-              validate = "probe";
+              validate = "on";
               # or [{ mode = "auto" }]
-              workingDirectories = [{ mode = "location"; }];
+              workingDirectory = { mode = "location"; };
               codeAction = {
                 disableRuleComment = { enable = true; location = "separateLine"; };
                 showDocumentation = { enable = true; };
+              };
+              codeActionOnSave = {
+                disableRuleComment = { enable = true; mode = "fixAll"; };
               };
             };
           };
@@ -103,6 +104,11 @@
           nil = {
             command = "nil";
           };
+          "typescript-language-server" = {
+            config = {
+              documentFormatting = false;
+            };
+          };
           unison = {
             command = "nc";
             args = ["localhost" "5757"];
@@ -111,9 +117,39 @@
         };
         language = [
           {
+            name = "css";
+            # using pnpm as runner
+            formatter = { command = "pnpm"; args = [ "exec" "prettier" "--parser" "css" "--loglevel" "silent" ]; };
+            auto-format = true;
+          }
+          {
+            name = "json";
+            # using pnpm as runner
+            formatter = { command = "pnpm"; args = [ "exec" "prettier" "--parser" "json" "--loglevel" "silent" ]; };
+            auto-format = true;
+          }
+          {
+            name = "html";
+            # using pnpm as runner
+            formatter = { command = "pnpm"; args = [ "exec" "prettier" "--parser" "html" "--loglevel" "silent" ]; };
+            auto-format = true;
+          }
+          {
+            name = "scss";
+            # using pnpm as runner
+            formatter = { command = "pnpm"; args = [ "exec" "prettier" "--parser" "scss" "--loglevel" "silent" ]; };
+            auto-format = true;
+          }
+          {
             name = "typescript";
-            language-servers = [ "typescript-language-server" "eslint" ];
-            formatter = { command = "pnpm"; args = [ "exec" "prettier" "--parser" "typescript" ]; };
+            language-servers = [ { except-features = ["format"]; name = "typescript-language-server"; } "eslint" ];
+            formatter = { command = "pnpm"; args = [ "exec" "prettier" "--parser" "typescript" "--loglevel" "silent" ]; };
+            auto-format = true;
+          }
+          {
+            name = "tsx";
+            language-servers = [ { except-features = ["format"]; name = "typescript-language-server"; } "eslint" ];
+            formatter = { command = "pnpm"; args = [ "exec" "prettier" "--parser" "typescript" "--loglevel" "silent" ]; };
             auto-format = true;
           }
           {
