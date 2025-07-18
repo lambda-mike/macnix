@@ -14,6 +14,7 @@
   ];
 
   home = {
+    homeDirectory = "/home/${user}";
     username = user;
     # file = import ./homeFile.nix { inherit config; };
     packages = (
