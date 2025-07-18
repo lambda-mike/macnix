@@ -8,6 +8,8 @@ Set up Nix on MacOS using nix-darwin and home-manager with flakes:
 
 ## Installation
 
+### nix-darwin
+
 [Source](https://nixcademy.com/posts/nix-on-macos/)
 
 1. Install Nix with determinate systems installer:
@@ -27,6 +29,12 @@ Once you need `sudo` when installing for the first time, the simplest probably i
 ```bash
 nix shell nix-darwin
 sudo darwin-rebuild switch --flake <flake-uri>
+```
+
+### stand-alone home-manager
+
+```bash
+nix run home-manager/master -- switch --flake .
 ```
 
 ## Update
