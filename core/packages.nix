@@ -1,36 +1,25 @@
 { pkgs, ... }:
-
-# let
-  # sources = import ../nix/sources.nix;
-  # nixpkgsUnstable = sources."nixpkgs-unstable";
-  # pkgsUnstable = import nixpkgsUnstable {};
-# in (with pkgs; [
 (with pkgs; [
   azure-cli
-  # bandwhich
-  # brave
   delta
   du-dust
   duf
+  eslint
   fd
   font-awesome
-  # gimp
   git-crypt
   glab
-  # grex
   neofetch
   nil
   nixfmt-classic
-  # nnn
-  nodePackages.eslint
-  nodePackages.typescript-language-server
+  nodePackages.nodejs
   pnpm
-  # procs
-  # python3
-  # qrencode
   ripgrep
-  # rustup
+  rustup
   screen
   shellcheck
   tokei
+  typescript
+  typescript-language-server
+  vscode-langservers-extracted
 ])
