@@ -1,9 +1,15 @@
-opts@{ rev, dirtyRev, loginwindowText, user }:
-{ pkgs, ... }: {
+opts@{
+  rev,
+  dirtyRev,
+  loginwindowText,
+  user,
+}:
+{ pkgs, ... }:
+{
   environment.systemPackages = [
   ];
 
-  # Auto upgrade nix package 
+  # Auto upgrade nix package
   # nix.package = pkgs.nix;
 
   nix.enable = false;

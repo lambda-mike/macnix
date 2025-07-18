@@ -19,11 +19,23 @@
           scrolloff = 0;
           soft-wrap.enable = true;
           statusline.right = [
-            "diagnostics" "separator" "register"
-            "selections" "primary-selection-length" "separator"
-            "position" "total-line-numbers" "position-percentage" "file-encoding"
+            "diagnostics"
+            "separator"
+            "register"
+            "selections"
+            "primary-selection-length"
+            "separator"
+            "position"
+            "total-line-numbers"
+            "position-percentage"
+            "file-encoding"
           ];
-          statusline.left = [ "mode" "spinner" "version-control" "file-name" ];
+          statusline.left = [
+            "mode"
+            "spinner"
+            "version-control"
+            "file-name"
+          ];
           whitespace.render = "all";
         };
         keys = {
@@ -67,8 +79,14 @@
             "M" = "goto_window_center";
             "L" = "goto_window_bottom";
             "G" = "goto_last_line";
-            "ret" = ["move_line_down" "goto_first_nonwhitespace"];
-            "minus" = ["move_line_up" "goto_first_nonwhitespace"];
+            "ret" = [
+              "move_line_down"
+              "goto_first_nonwhitespace"
+            ];
+            "minus" = [
+              "move_line_up"
+              "goto_first_nonwhitespace"
+            ];
             "{" = "goto_prev_paragraph";
             "}" = "goto_next_paragraph";
           };
@@ -78,26 +96,40 @@
         language-server = {
           eslint = {
             command = "vscode-eslint-language-server";
-            args = ["--stdio"];
+            args = [ "--stdio" ];
             config = {
-              experimental = { useFlatConfig = false; };
+              experimental = {
+                useFlatConfig = false;
+              };
               # onIgnoredFiles = "off";
-              problems = { shortenToSingleLine = false; };
+              problems = {
+                shortenToSingleLine = false;
+              };
               quiet = false;
-              rulesCustomizations = [];
+              rulesCustomizations = [ ];
               # "onType" or "onSave"
               run = "onType";
               # Commenting out this line causes the language-server to crash
               nodePath = "";
               validate = "on";
               # or [{ mode = "auto" }]
-              workingDirectory = { mode = "location"; };
+              workingDirectory = {
+                mode = "location";
+              };
               codeAction = {
-                disableRuleComment = { enable = true; location = "separateLine"; };
-                showDocumentation = { enable = true; };
+                disableRuleComment = {
+                  enable = true;
+                  location = "separateLine";
+                };
+                showDocumentation = {
+                  enable = true;
+                };
               };
               codeActionOnSave = {
-                disableRuleComment = { enable = true; mode = "fixAll"; };
+                disableRuleComment = {
+                  enable = true;
+                  mode = "fixAll";
+                };
               };
             };
           };
@@ -114,7 +146,10 @@
           };
           unison = {
             command = "nc";
-            args = ["localhost" "5757"];
+            args = [
+              "localhost"
+              "5757"
+            ];
           };
           # TODO TS split to efm and ts lang server
         };
@@ -122,58 +157,133 @@
           {
             name = "css";
             # using pnpm as runner
-            formatter = { command = "pnpm"; args = [ "exec" "prettier" "--parser" "css" "--loglevel" "silent" ]; };
+            formatter = {
+              command = "pnpm";
+              args = [
+                "exec"
+                "prettier"
+                "--parser"
+                "css"
+                "--loglevel"
+                "silent"
+              ];
+            };
             auto-format = true;
           }
           {
             name = "json";
             # using pnpm as runner
-            formatter = { command = "pnpm"; args = [ "exec" "prettier" "--parser" "json" "--loglevel" "silent" ]; };
+            formatter = {
+              command = "pnpm";
+              args = [
+                "exec"
+                "prettier"
+                "--parser"
+                "json"
+                "--loglevel"
+                "silent"
+              ];
+            };
             auto-format = true;
           }
           {
             name = "html";
             # using pnpm as runner
-            formatter = { command = "pnpm"; args = [ "exec" "prettier" "--parser" "html" "--loglevel" "silent" ]; };
+            formatter = {
+              command = "pnpm";
+              args = [
+                "exec"
+                "prettier"
+                "--parser"
+                "html"
+                "--loglevel"
+                "silent"
+              ];
+            };
             auto-format = true;
           }
           {
             name = "scss";
             # using pnpm as runner
-            formatter = { command = "pnpm"; args = [ "exec" "prettier" "--parser" "scss" "--loglevel" "silent" ]; };
+            formatter = {
+              command = "pnpm";
+              args = [
+                "exec"
+                "prettier"
+                "--parser"
+                "scss"
+                "--loglevel"
+                "silent"
+              ];
+            };
             auto-format = true;
           }
           {
             name = "typescript";
-            language-servers = [ { except-features = ["format"]; name = "typescript-language-server"; } "eslint" ];
-            formatter = { command = "pnpm"; args = [ "exec" "prettier" "--parser" "typescript" "--loglevel" "silent" ]; };
+            language-servers = [
+              {
+                except-features = [ "format" ];
+                name = "typescript-language-server";
+              }
+              "eslint"
+            ];
+            formatter = {
+              command = "pnpm";
+              args = [
+                "exec"
+                "prettier"
+                "--parser"
+                "typescript"
+                "--loglevel"
+                "silent"
+              ];
+            };
             auto-format = true;
           }
           {
             name = "tsx";
-            language-servers = [ { except-features = ["format"]; name = "typescript-language-server"; } "eslint" ];
-            formatter = { command = "pnpm"; args = [ "exec" "prettier" "--parser" "typescript" "--loglevel" "silent" ]; };
+            language-servers = [
+              {
+                except-features = [ "format" ];
+                name = "typescript-language-server";
+              }
+              "eslint"
+            ];
+            formatter = {
+              command = "pnpm";
+              args = [
+                "exec"
+                "prettier"
+                "--parser"
+                "typescript"
+                "--loglevel"
+                "silent"
+              ];
+            };
             auto-format = true;
           }
           {
             name = "nim";
-            language-servers = ["nimlsp"];
+            language-servers = [ "nimlsp" ];
           }
           {
             name = "nix";
-            language-servers = ["nil"];
+            language-servers = [ "nil" ];
           }
           {
             name = "unison";
             scope = "source.unison";
             "injection-regex" = "unison";
-            "file-types" = ["u"];
-            shebangs = [];
-            roots = [];
+            "file-types" = [ "u" ];
+            shebangs = [ ];
+            roots = [ ];
             "auto-format" = false;
             "comment-token" = "--";
-            indent = { "tab-width" = 4; unit = "    "; };
-            language-servers = ["unison"];
+            indent = {
+              "tab-width" = 4;
+              unit = "    ";
+            };
+            language-servers = [ "unison" ];
           }
         ];
       };

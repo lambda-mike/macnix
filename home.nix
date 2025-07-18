@@ -17,8 +17,10 @@
   home = {
     username = user;
     # file = import ./homeFile.nix { inherit config; };
-    packages = import ./core/packages.nix { inherit pkgs; } ++ (with pkgs; [
-    ]);
+    packages =
+      import ./core/packages.nix { inherit pkgs; }
+      ++ (with pkgs; [
+      ]);
     sessionVariables = {
       # Other env vars here cause issues during fish shell startup
       EDITOR = "hx";

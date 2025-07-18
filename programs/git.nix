@@ -1,4 +1,9 @@
-{ config, lib, pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 
 # to overwrite ssh key in given git repo, add to its local config:
 # sshCommand = ssh -i ~/.ssh/key
