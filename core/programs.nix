@@ -14,6 +14,9 @@
   };
   gpg.enable = true;
   jq.enable = true;
+  nnn = {
+    enable = true;
+  };
   skim.enable = true;
   tealdeer.enable = true;
   zoxide = {
