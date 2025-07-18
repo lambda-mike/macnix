@@ -15,6 +15,7 @@
   outputs =
     {
       home-manager,
+      nixpkgs,
       nix-darwin,
       self,
       ...
@@ -22,29 +23,51 @@
     {
       darwinConfigurations =
         let
-          helixTheme = "catppuccin_mocha";
-          loginwindowText = builtins.abort "TODO LoginwindowText";
-          myhostname = builtins.abort "TODO set correct 'myhostname'";
-          user = builtins.abort "TODO: set proper username";
+          darwin = {
+            helixTheme = "catppuccin_mocha";
+            loginwindowText = builtins.abort "TODO LoginwindowText";
+            hostname = builtins.abort "TODO set correct 'hostname'";
+            user = builtins.abort "TODO: set proper username";
+          };
         in
         {
-          ${myhostname} = nix-darwin.lib.darwinSystem {
+          ${darwin.hostname} = nix-darwin.lib.darwinSystem {
             system = "aarch64-darwin";
             modules = [
               (import ./configuration.nix {
                 inherit (self) rev dirtyRev;
-                inherit loginwindowText user;
+                inherit (darwin) loginwindowText user;
               })
               home-manager.darwinModules.home-manager
               {
                 home-manager.useGlobalPkgs = true;
                 home-manager.useUserPackages = true;
-                home-manager.users.${user} = (import ./home.nix { inherit helixTheme user; });
+                home-manager.users.${darwin.user} = (import ./home.nix { inherit (darwin) helixTheme user; });
 
                 # Optionally, use home-manager.extraSpecialArgs to pass
                 # arguments to home.nix
               }
             ];
+          };
+        };
+      homeConfigurations =
+        let
+          wsl = {
+            helixTheme = "catppuccin_mocha";
+            hostname = builtins.abort "TODO set correct 'hostname'";
+            user = builtins.abort "TODO: set proper username";
+          };
+        in
+        {
+          ${wsl.hostname} = home-manager.lib.homeManagerConfiguration {
+            pkgs = nixpkgs.legacyPackages."x86_64-linux";
+
+            # Specify your home configuration modules here, for example,
+            # the path to your home.nix.
+            modules = [ (import ./home_wsl.nix { inherit (wsl) helixTheme user; }) ];
+
+            # Optionally use extraSpecialArgs
+            # to pass through arguments to home.nix
           };
         };
     };
