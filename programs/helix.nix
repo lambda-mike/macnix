@@ -55,7 +55,10 @@
             space.w.c = "wclose";
             space.c = "toggle_comments";
             space.m.i = ":toggle-option lsp.display-inlay-hints";
-            space.m.f = ":pipe pnpm exec prettier --parser typescript --loglevel silent";
+            space.m.f.c = ":pipe pnpm exec prettier --parser css --loglevel silent";
+            space.m.f.h = ":pipe pnpm exec prettier --parser html --loglevel silent";
+            space.m.f.s = ":pipe pnpm exec prettier --parser scss --loglevel silent";
+            space.m.f.t = ":pipe pnpm exec prettier --parser typescript --loglevel silent";
             space.m.r = ":reflow 80";
             "C-/" = "toggle_comments";
             "A-/" = "toggle_comments";
