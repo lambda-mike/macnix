@@ -37,8 +37,6 @@
             space.q.A = ":quit-all!";
             space.q.x = ":write-quit-all";
             space.q.X = ":write-quit-all!";
-            space.e = ":reload";
-            space.E = ":reload-all";
             space.b.b = "buffer_picker";
             space."," = "buffer_picker";
             space.b.k = ":buffer-close";
@@ -48,10 +46,12 @@
             space.b.O = ":buffer-close-others!";
             space.b.s = ":write";
             space.b.S = ":write-all";
+            space.f.e = ":reload";
+            space.f.E = ":reload-all";
             space.f.f = "file_picker";
             space.f.F = "file_picker_in_current_buffer_directory";
-            space.space = "file_picker_in_current_directory";
             space.f.s = ":write";
+            space.space = "file_picker_in_current_directory";
             space.w.c = "wclose";
             space.c = "toggle_comments";
             space.m.i = ":toggle-option lsp.display-inlay-hints";
