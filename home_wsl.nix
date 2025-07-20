@@ -3,10 +3,10 @@
 
 {
   imports = [
+    ./programs/direnv.nix
     ./programs/fish.nix
     (import ./programs/helix.nix { theme = helixTheme; })
     ./programs/git.nix
-    # ./programs/keychain.nix
     ./programs/ssh.nix
     ./programs/tmux.nix
     # ./services/gpg-agent.nix
