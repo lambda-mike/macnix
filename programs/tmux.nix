@@ -28,7 +28,7 @@
         }
       ];
       shell = "${pkgs.fish}/bin/fish";
-      # terminal = "xterm-256color";
+      terminal = "tmux";
     };
   };
 }
