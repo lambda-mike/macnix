@@ -37,8 +37,8 @@ opts@{
   ];
 
   power.sleep.allowSleepByPowerButton = true;
-  power.sleep.computer = 10;
-  power.sleep.display = 7;
+  # power.sleep.computer = 30;
+  power.sleep.display = 17;
 
   programs.bash.enable = true;
   programs.direnv.enable = true;
