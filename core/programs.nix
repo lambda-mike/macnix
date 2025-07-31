@@ -20,6 +20,12 @@
   nnn = {
     enable = true;
   };
+  ruff = {
+    enable = true;
+    settings = {
+      line-length = 120;
+    };
+  };
   skim.enable = true;
   tealdeer.enable = true;
   zoxide = {

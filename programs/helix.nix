@@ -293,7 +293,7 @@
           }
           {
             name = "python";
-            language-servers = [ "pylsp" ];
+            language-servers = [ "pylsp" "ruff" ];
             auto-format = true;
           }
         ];
