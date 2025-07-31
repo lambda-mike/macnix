@@ -151,8 +151,14 @@
               "5757"
             ];
           };
-          # TODO TS split to efm and ts lang server
+          pylsp = {
+            config.pylsp.plugins = {
+              pylsp_mypy.enabled = true;
+              pylsp_mypy.live_mode = true;
+            };
+          };
         };
+        # TODO TS split to efm and ts lang server
         language = [
           {
             name = "css";
@@ -277,13 +283,18 @@
             "file-types" = [ "u" ];
             shebangs = [ ];
             roots = [ ];
-            "auto-format" = false;
+            auto-format = false;
             "comment-token" = "--";
             indent = {
               "tab-width" = 4;
               unit = "    ";
             };
             language-servers = [ "unison" ];
+          }
+          {
+            name = "python";
+            language-servers = [ "pylsp" ];
+            auto-format = true;
           }
         ];
       };
