@@ -6,7 +6,8 @@ opts@{
 }:
 { pkgs, ... }:
 {
-  environment.systemPackages = [
+  environment.systemPackages = with pkgs; [
+    cloudflared
   ];
 
   # Auto upgrade nix package
