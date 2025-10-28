@@ -1,0 +1,30 @@
+name: MacNix CI
+
+on:
+  push:
+    branches: [main, dev]
+  pull_request:
+    branches: [main, dev]
+
+jobs:
+  build-darwin-flake:
+    runs-on: macos-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Install Nix
+        uses: cachix/install-nix-action@v22
+        with:
+          nix_path: nixpkgs=channel:nixos-25.05
+
+      - name: Set configuration in flake.nix
+        run: ./ci_configure_flake.sh
+
+      - name: Run nix flake check
+        run: nix flake check --show-trace
+
+      - name: Build Darwin system configuration
+        # ci-host is taken from ci_configure_flake.sh script
+        run: darwin-rebuild --show-trace switch --dry-run --flake .#ci-host
+
