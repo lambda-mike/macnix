@@ -19,6 +19,7 @@
     # file = import ./homeFile.nix { inherit config; };
     packages = (with pkgs; [
       azure-cli
+      cloudflared
       delta
       du-dust
       duf
