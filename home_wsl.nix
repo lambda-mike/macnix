@@ -23,7 +23,7 @@
       [
         azure-cli
         delta
-        du-dust
+        dust
         duf
         eslint
         fd

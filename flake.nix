@@ -23,8 +23,10 @@
           darwin = {
             helixTheme = "catppuccin_mocha";
             loginwindowText = builtins.abort "TODO LoginwindowText";
-            hostname = builtins.abort "TODO set correct 'hostname'";
-            user = builtins.abort "TODO: set proper username";
+            hostname = builtins.abort "TODO set hostname";
+            user = builtins.abort "TODO set username";
+            rev = self.rev or "ci";
+            dirtyRev = self.rev or "ci";
           };
         in
         {
@@ -32,8 +34,9 @@
             system = "aarch64-darwin";
             modules = [
               (import ./configuration.nix {
-                inherit (self) rev dirtyRev;
                 inherit (darwin) loginwindowText user;
+                rev = darwin.rev;
+                dirtyRev = darwin.dirtyRev;
               })
               home-manager.darwinModules.home-manager
               {
@@ -51,8 +54,8 @@
         let
           wsl = {
             helixTheme = "catppuccin_mocha";
-            hostname = builtins.abort "TODO set correct 'hostname'";
-            user = builtins.abort "TODO: set proper username";
+            hostname = builtins.abort "TODO set hostname";
+            user = builtins.abort "TODO set username";
           };
         in
         {
@@ -67,5 +70,29 @@
             # to pass through arguments to home.nix
           };
         };
+      nixosConfigurations = let
+        sage = {
+          helixTheme = "catppuccin_mocha";
+          hostname = builtins.abort "TODO set hostname";
+          user = builtins.abort "TODO set username";
+          theme = (import ./themes.nix).green;
+          windowManager = builtins.abort "TODO set windowManager";
+        };
+      in {
+        ${sage.hostname} = nixpkgs.lib.nixosSystem {
+          system = "x86_64-linux";
+          modules = [
+            ./sage_configuration.nix
+            home-manager.nixosModules.home-manager
+            {
+              home-manager.useGlobalPkgs = true;
+              home-manager.useUserPackages = true;
+              home-manager.users.${sage.user} = (import ./sage_home.nix { inherit (sage) helixTheme user theme windowManager; });
+              # Optionally, use home-manager.extraSpecialArgs to pass
+              # arguments to home.nix
+            }
+          ];
+        };
+      };
     };
 }

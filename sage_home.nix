@@ -1,22 +1,35 @@
-{ user, helixTheme }:
-{ config, pkgs, ... }:
+{ user, helixTheme, theme, windowManager }:
+{ pkgs, config, ... }:
 
 {
+
+  # The home-manager manual is at:
+  #
+  #   https://rycee.gitlab.io/home-manager/release-notes.html
+  #
+  # Configuration options are documented at:
+  #
+  #   https://rycee.gitlab.io/home-manager/options.html
+
   imports = [
+    ./cursor.nix
     ./programs/alacritty.nix
     ./programs/fish.nix
-    (import ./programs/helix.nix { theme = helixTheme; })
     ./programs/git.nix
-    # ./programs/keychain.nix
-    ./programs/ssh.nix
+    (import ./programs/helix.nix { theme = helixTheme; })
+    ./programs/keychain.nix
     ./programs/tmux.nix
-    # ./services/gpg-agent.nix
-    ./xdg.nix
+    ./services/gpg-agent.nix
+    ./services/redshift.nix
+    ./services/screen-locker.nix
+    (import ./services/polybar.nix { inherit theme windowManager; })
+    (import ./xdg.nix theme)
+    (import ./xsession.nix { inherit windowManager; })
   ];
 
   home = {
     username = user;
-    # file = import ./homeFile.nix { inherit config; };
+    homeDirectory = "/home/${user}";
     packages = (with pkgs; [
       azure-cli
       cloudflared
@@ -26,6 +39,7 @@
       eslint
       fd
       font-awesome
+      gh
       git-crypt
       glab
       neofetch
@@ -38,7 +52,6 @@
       python312Packages.pylsp-rope
       python312Packages.python-lsp-ruff
       python312Packages.python-lsp-server
-      ripgrep
       rustup
       screen
       shellcheck
@@ -47,27 +60,20 @@
       typescript-language-server
       vscode-langservers-extracted
     ]);
+    file = import ./homeFile.nix { inherit config; };
+    sessionPath = [
+      "${config.home.homeDirectory}/.local/bin"
+    ];
     sessionVariables = {
       # Other env vars here cause issues during fish shell startup
       EDITOR = "hx";
     };
-    # This value determines the Home Manager release that your
-    # configuration is compatible with. This helps avoid breakage
-    # when a new Home Manager release introduces backwards
-    # incompatible changes.
-    #
-    # You can update Home Manager without changing this value. See
-    # the Home Manager release notes for a list of state version
-    # changes in each release.
     stateVersion = "25.05";
   };
 
-  programs = import ./core/programs.nix { inherit pkgs; } // {
-    # Overwrite programs here
-    # Let Home Manager install and manage itself.
-    home-manager.enable = true;
-  };
+  fonts.fontconfig.enable = true;
 
-  # FIXME programs.git.userName
-  # FIXME programs.git.userEmail
+  programs = import ./core/sage_programs.nix theme { inherit pkgs; } // {
+    # Overwrite programs here
+  };
 }

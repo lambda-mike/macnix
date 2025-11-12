@@ -7,24 +7,57 @@ on:
     branches: [main, dev]
 
 jobs:
-  build-darwin-flake:
-    runs-on: macos-latest
+  check-flake:
+    runs-on: ubuntu-24.04
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v5
 
       - name: Install Nix
-        uses: cachix/install-nix-action@v22
+        uses: cachix/install-nix-action@v31
+        with:
+          nix_path: nixpkgs=channel:nixos-unstable
+
+      - name: Set configuration in flake.nix
+        run: ./ci_configure_flake.sh
+
+      - run: nix flake check
+
+  build-darwin-flake:
+    runs-on: macos-latest
+    needs: check-flake
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v5
+
+      - name: Install Nix
+        uses: cachix/install-nix-action@v31
         with:
           nix_path: nixpkgs=channel:nixos-25.05
 
       - name: Set configuration in flake.nix
         run: ./ci_configure_flake.sh
 
-      - name: Run nix flake check
-        run: nix flake check --show-trace
-
       - name: Build Darwin system configuration
         # ci-host is taken from ci_configure_flake.sh script
-        run: darwin-rebuild --show-trace switch --dry-run --flake .#ci-host
+        run: nix run nix-darwin/master#darwin-rebuild -- --show-trace build --dry-run --flake .#ci-host
+
+  build-sage-flake:
+    runs-on: ubuntu-24.04
+    needs: check-flake
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v5
+
+      - name: Install Nix
+        uses: cachix/install-nix-action@v31
+        with:
+          nix_path: nixpkgs=channel:nixos-unstable
+
+      - name: Set configuration in flake.nix
+        run: ./ci_configure_flake.sh
+
+      - name: Build system configuration
+        # ci-host is taken from ci_configure_flake.sh script
+        run: nix run nixpkgs#nixos-rebuild -- --show-trace dry-build --flake .#ci-host
 

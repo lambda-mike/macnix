@@ -8,8 +8,14 @@
 {
   programs = {
     ssh = {
-      compression = true;
       enable = true;
+      enableDefaultConfig = false;
+      matchBlocks."*" = {
+          forwardAgent = false;
+          addKeysToAgent = "yes";
+          compression = true;
+          userKnownHostsFile = "~/.ssh/known_hosts";
+        };
     };
   };
 }

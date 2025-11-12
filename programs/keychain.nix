@@ -8,7 +8,6 @@
 {
   programs = {
     keychain = {
-      agents = [ "ssh" ];
       enable = true;
       extraFlags = [
         "--quick"

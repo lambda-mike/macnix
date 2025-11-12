@@ -20,6 +20,9 @@
   nnn = {
     enable = true;
   };
+  ripgrep = {
+    enable = true;
+  };
   ruff = {
     enable = true;
     settings = {
