@@ -19,7 +19,7 @@ jobs:
           nix_path: nixpkgs=channel:nixos-unstable
 
       - name: Set configuration in flake.nix
-        run: ./ci_configure_flake.sh
+        run: nix-shell -p perl --run ./ci_configure_flake.sh
 
       - run: nix flake check
 
@@ -36,7 +36,7 @@ jobs:
           nix_path: nixpkgs=channel:nixos-25.05
 
       - name: Set configuration in flake.nix
-        run: ./ci_configure_flake.sh
+        run: nix-shell -p perl --run ./ci_configure_flake.sh
 
       - name: Build Darwin system configuration
         # ci-host is taken from ci_configure_flake.sh script
@@ -55,7 +55,7 @@ jobs:
           nix_path: nixpkgs=channel:nixos-unstable
 
       - name: Set configuration in flake.nix
-        run: ./ci_configure_flake.sh
+        run: nix-shell -p perl --run ./ci_configure_flake.sh
 
       - name: Build system configuration
         # ci-host is taken from ci_configure_flake.sh script
