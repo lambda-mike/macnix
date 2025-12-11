@@ -15,6 +15,7 @@
     git = true;
     icons = "auto";
   };
+  gh.enable = true;
   gpg.enable = true;
   jq.enable = true;
   nnn = {

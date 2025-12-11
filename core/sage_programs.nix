@@ -29,6 +29,7 @@ theme:
   };
   feh.enable = true;
   firefox.enable = true;
+  gh.enable = true;
   gpg.enable = true;
   htop.enable = true;
   jq.enable = true;

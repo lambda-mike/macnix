@@ -39,7 +39,6 @@
       eslint
       fd
       font-awesome
-      gh
       git-crypt
       glab
       neofetch
