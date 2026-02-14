@@ -34,14 +34,20 @@
       azure-cli
       brave
       cloudflared
+      cryfs
       delta
       dust
       duf
       eslint
       fd
       font-awesome
-      git-crypt
+      gimp
+      # git-crypt
       glab
+      julia
+      krita
+      libreoffice
+      lsof
       neofetch
       nerd-fonts.agave
       nerd-fonts.caskaydia-cove
@@ -61,21 +67,28 @@
       nil
       nixfmt
       nodePackages.nodejs
+      perl
+      perlnavigator
       pnpm
       python312
       # Python LSP
-      python312Packages.pylsp-mypy
-      python312Packages.pylsp-rope
-      python312Packages.python-lsp-ruff
-      python312Packages.python-lsp-server
+      # python312Packages.pylsp-mypy
+      # python312Packages.pylsp-rope
+      # python312Packages.python-lsp-ruff
+      # python312Packages.python-lsp-server
+      qrcode
       rustup
       screen
+      scrot
       shellcheck
       symbola
       tokei
+      tree
       typescript
       typescript-language-server
+      unzip
       vscode-langservers-extracted
+      xsel
     ]);
     file = import ./homeFile.nix { inherit config; };
     sessionPath = [
