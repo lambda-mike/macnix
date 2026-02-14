@@ -6,8 +6,8 @@
 
 {
   imports =
-    [ # Include the results of the hardware scan.
-      /etc/nixos/hardware-configuration.nix
+    [ # FIXME Phase1 Include the results of the hardware scan.
+      ./hardware-configuration.nix
     ];
 
   boot.loader.systemd-boot.enable = true;

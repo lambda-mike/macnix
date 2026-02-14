@@ -11,7 +11,6 @@ perl -i -wpl -e '
 
 perl -i -wpl -e '
   s/^(\s*)# CIFIXME_TEST.*$/${1}users.users.test.isNormalUser = true;/;
-  s|^(\s*)/etc/nixos.*$|${1}./hardware-configuration.nix|;
 ' sage_configuration.nix
 
 echo '{ ... }: {  fileSystems = { "/".device = "/dev/fake1"; "/nix".device = "/dev/fake1"; "/home".device = "/dev/fake1"; "/data".device = "/dev/fake1"; "/snapshots".device = "/dev/fake1"; "/swap".device = "/dev/fake1"; }; }' > hardware-configuration.nix

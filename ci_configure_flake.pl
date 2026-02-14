@@ -28,7 +28,6 @@ close($fh);
 open($fh, '>', 'sage_configuration.nix') or die "Could not open file to write: $!";
 foreach (@lines) {
   s/^(\s*)# CIFIXME_TEST.*$/${1}users.users.test.isNormalUser = true;/;
-  s|^(\s*)/etc/nixos.*$|${1}./hardware-configuration.nix|;
   print $fh $_;
 }
 close($fh);
