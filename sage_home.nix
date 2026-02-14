@@ -32,6 +32,7 @@
     homeDirectory = "/home/${user}";
     packages = (with pkgs; [
       azure-cli
+      brave
       cloudflared
       delta
       dust
