@@ -231,7 +231,7 @@ ClientAliveInterval 100
       ''ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAILWAyfg5RYzj8s3EV06QN1TPDH597nn63wmh1Q7tYthM xps''
     ];
     # FIXME Phase2 Uncomment once fish is installed using home-manager
-    #shell = /home/mike/.nix-profile/bin/fish;
+    # shell = "${pkgs.fish}/bin/fish";
     uid = 1000;
   };
 
