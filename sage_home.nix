@@ -23,7 +23,7 @@
     ./services/redshift.nix
     ./services/screen-locker.nix
     (import ./services/polybar.nix { inherit theme windowManager; })
-    (import ./xdg.nix theme)
+    (import ./sage_xdg.nix theme)
     (import ./xsession.nix { inherit windowManager; })
   ];
 
@@ -75,4 +75,10 @@
   programs = import ./core/sage_programs.nix theme { inherit pkgs; } // {
     # Overwrite programs here
   };
+
+  # FIXME create keys.nix
+  # FIXME programs.git userName
+  # FIXME programs.git userEmail
+  # FIXME services/redshift.nix coords
+  # FIXME sage_xdg.nix ~/wallpaper
 }
