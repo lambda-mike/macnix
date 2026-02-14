@@ -5,6 +5,7 @@
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
+      "${builtins.fetchGit { url = "https://github.com/NixOS/nixos-hardware.git"; }}/framework/12-inch/13th-gen-intel"
     ];
 
   boot.loader.systemd-boot.enable = true;
