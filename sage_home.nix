@@ -42,10 +42,26 @@
       git-crypt
       glab
       neofetch
+      nerd-fonts.agave
+      nerd-fonts.caskaydia-cove
+      nerd-fonts.cousine
+      nerd-fonts.fira-mono
+      nerd-fonts.hack
+      nerd-fonts.hurmit
+      nerd-fonts.iosevka
+      nerd-fonts.jetbrains-mono
+      nerd-fonts.monofur
+      nerd-fonts.mononoki
+      nerd-fonts.roboto-mono
+      nerd-fonts.sauce-code-pro
+      nerd-fonts.symbols-only
+      nerd-fonts.terminess-ttf
+      nerd-fonts.ubuntu-mono
       nil
       nixfmt
       nodePackages.nodejs
       pnpm
+      python312
       # Python LSP
       python312Packages.pylsp-mypy
       python312Packages.pylsp-rope
@@ -54,6 +70,7 @@
       rustup
       screen
       shellcheck
+      symbola
       tokei
       typescript
       typescript-language-server
