@@ -6,8 +6,7 @@
 {
   imports =
     [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
-      "${builtins.fetchGit { url = "https://github.com/NixOS/nixos-hardware.git"; ref = "master"; rev = "3a4da5f8c13b542c1298e7f0da6c1767db59602d"; }}/framework/12-inch/13th-gen-intel"
+      /etc/nixos/hardware-configuration.nix
     ];
 
   # FIXME Phase1
@@ -46,11 +45,11 @@
   # FIXME Phase1 Set proper mount point options
   # Filesystem
   fileSystems = {
-    "/".options = [ "compress=zstd:1" ];
-    "/nix".options = [ "compress=zstd:1" ];
-    "/home".options = [ "compress=zstd:1" ];
-    "/data".options = [ "compress=zstd:1" ];
-    "/snapshots".options = [ "compress=zstd:1" ];
+    "/".options = [ "compress=zstd" ];
+    "/nix".options = [ "compress=zstd" ];
+    "/home".options = [ "compress=zstd" ];
+    "/data".options = [ "compress=zstd" ];
+    "/snapshots".options = [ "compress=zstd" ];
     "/swap".options = [ "noatime" ];
   };
   swapDevices = [ { device = "/swap/swapfile"; } ];

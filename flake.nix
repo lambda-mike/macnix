@@ -5,6 +5,7 @@
     nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
     nix-darwin.url = "github:nix-darwin/nix-darwin";
     nix-darwin.inputs.nixpkgs.follows = "nixpkgs";
+    nixos-hardware.url = "github:NixOS/nixos-hardware/master";
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
   };
@@ -14,6 +15,7 @@
       home-manager,
       nixpkgs,
       nix-darwin,
+      nixos-hardware,
       self,
       ...
     }:
@@ -82,6 +84,7 @@
         ${sage.hostname} = nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
           modules = [
+            nixos-hardware.nixosModules.framework-12-13th-gen-intel
             ./sage_configuration.nix
             home-manager.nixosModules.home-manager
             {
