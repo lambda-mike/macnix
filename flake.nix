@@ -79,18 +79,19 @@
           user = builtins.abort "TODO set username";
           theme = (import ./themes.nix).green;
           windowManager = builtins.abort "TODO set windowManager";
+          stateVersion = builtins.abort "TODO set stateVersion to installed nixos version";
         };
       in {
         ${sage.hostname} = nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
           modules = [
             nixos-hardware.nixosModules.framework-12-13th-gen-intel
-            ./sage_configuration.nix
+            (import ./sage_configuration.nix { inherit (sage) hostname stateVersion; })
             home-manager.nixosModules.home-manager
             {
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
-              home-manager.users.${sage.user} = (import ./sage_home.nix { inherit (sage) helixTheme user theme windowManager; });
+              home-manager.users.${sage.user} = (import ./sage_home.nix { inherit (sage) helixTheme user theme windowManager stateVersion; });
               # Optionally, use home-manager.extraSpecialArgs to pass
               # arguments to home.nix
             }

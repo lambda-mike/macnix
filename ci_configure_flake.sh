@@ -6,9 +6,13 @@ perl -i -wpl -e '
   s/^(\s*)hostname = builtins\.abort.*$/${1}hostname = "ci-host";/;
   s/^(\s*)user = builtins\.abort.*$/${1}user = "test";/;
   s/^(\s*)windowManager = builtins\.abort.*$/${1}windowManager = "leftwm";/;
+  s/^(\s*)stateVersion = builtins\.abort.*$/${1}stateVersion = "25.05";/;
 ' flake.nix
 
-perl -i -wpl -e 's/^(\s*)# CIFIXME_TEST.*$/${1}users.users.test.isNormalUser = true;/;' sage_configuration.nix
+perl -i -wpl -e '
+  s/^(\s*)# CIFIXME_TEST.*$/${1}users.users.test.isNormalUser = true;/;
+  s|^(\s*)/etc/nixos.*$|${1}./hardware-configuration.nix|;
+' sage_configuration.nix
 
 echo '{ ... }: {  fileSystems = { "/".device = "/dev/fake1"; "/nix".device = "/dev/fake1"; "/home".device = "/dev/fake1"; "/data".device = "/dev/fake1"; "/snapshots".device = "/dev/fake1"; "/swap".device = "/dev/fake1"; }; }' > hardware-configuration.nix
 

@@ -1,4 +1,4 @@
-{ user, helixTheme, theme, windowManager }:
+{ user, helixTheme, theme, windowManager, stateVersion }:
 { pkgs, config, ... }:
 
 {
@@ -67,7 +67,7 @@
       # Other env vars here cause issues during fish shell startup
       EDITOR = "hx";
     };
-    stateVersion = "25.05";
+    stateVersion = stateVersion;
   };
 
   fonts.fontconfig.enable = true;

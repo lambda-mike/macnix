@@ -1,6 +1,7 @@
 # Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
+{ hostname, stateVersion }:
 { lib, pkgs, ... }:
 
 {
@@ -14,13 +15,13 @@
   # boot.kernelPackages = pkgs.linuxPackages_5_7;
 
   # Boot loader (UEFI)
-  boot.loader.systemd-boot.configurationLimit = 30;
+  boot.loader.systemd-boot.configurationLimit = 3;
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
   boot.loader.timeout = 1;
+  # FIXME Phase1 remove if in hardware configuration
   boot.initrd.luks.devices = {
     root = {
-      # FIXME Phase1 Set proper value
       device = "/dev/sda2";
       preLVM = true;
     };
@@ -69,8 +70,7 @@
       "1.0.0.1"
     ];
   };
-  # FIXME Phase1 Set proper name
-  networking.hostName = "nixos";
+  networking.hostName = hostname;
 
   networking.firewall = {
     allowedTCPPorts = [
@@ -120,7 +120,7 @@
   # Localization
   i18n.defaultLocale = "en_US.UTF-8";
   console.useXkbConfig = true;
-  time.timeZone = "Europe/London";
+  time.timeZone = "Europe/Warsaw";
 
   # Sound
   services.pipewire.enable = true;
@@ -185,15 +185,12 @@ ClientAliveInterval 100
   };
   # Touchpad support
   services.libinput.enable = true;
-  services.xserver = {
-    enable = true;
-    xkb = {
-      layout = "pl";
-      variant = "colemak";
-    };
-    displayManager.lightdm.enable = true;
-    windowManager.leftwm.enable = true;
-  };
+  services.xserver.enable = true;
+  services.xserver.xkb.layout = "pl";
+  services.xserver.xkb.variant = "colemak";
+
+  services.xserver.displayManager.lightdm.enable = true;
+  services.xserver.windowManager.leftwm.enable = true;
 
   system.autoUpgrade = {
     allowReboot = false;
@@ -272,5 +269,5 @@ ClientAliveInterval 100
     };
   };
 
-  system.stateVersion = "25.05";
+  system.stateVersion = stateVersion;
 }

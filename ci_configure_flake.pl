@@ -16,6 +16,7 @@ foreach (@lines) {
   s/^(\s*)hostname = builtins\.abort.*$/${1}hostname = "ci-host";/;
   s/^(\s*)user = builtins\.abort.*$/${1}user = "test";/;
   s/^(\s*)windowManager = builtins\.abort.*$/${1}windowManager = "leftwm";/;
+  s/^(\s*)stateVersion = builtins\.abort.*$/${1}stateVersion = "25.05";/;
   print $fh $_;
 }
 close($fh);
@@ -27,6 +28,7 @@ close($fh);
 open($fh, '>', 'sage_configuration.nix') or die "Could not open file to write: $!";
 foreach (@lines) {
   s/^(\s*)# CIFIXME_TEST.*$/${1}users.users.test.isNormalUser = true;/;
+  s|^(\s*)/etc/nixos.*$|${1}./hardware-configuration.nix|;
   print $fh $_;
 }
 close($fh);
