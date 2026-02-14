@@ -239,6 +239,7 @@ ClientAliveInterval 100
   environment.systemPackages = with pkgs; [
     alsa-utils
     android-studio
+    android-tools
     appimage-run
     killall
     lynx
@@ -247,9 +248,6 @@ ClientAliveInterval 100
     wget
     vim
   ];
-
-  # Android
-  programs.adb.enable = true;
 
   programs.bazecor.enable = true;
   programs.command-not-found.enable = true;

@@ -39,7 +39,7 @@ isVertical() {
 
 PATH=$PATH:${
                    with pkgs;
-                   lib.makeBinPath [ coreutils coreutils-full gnugrep jq killall leftwm procps xorg.xrandr which ]
+                   lib.makeBinPath [ coreutils coreutils-full gnugrep jq killall leftwm procps xrandr which ]
                  }
 
 # Terminate already running bar instances

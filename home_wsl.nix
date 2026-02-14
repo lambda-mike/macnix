@@ -32,7 +32,7 @@
         glab
         neofetch
         nil
-        nixfmt-classic
+        nixfmt
         nodePackages.nodejs
         pnpm
         # Python LSP
