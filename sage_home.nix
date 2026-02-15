@@ -67,6 +67,7 @@
       nil
       nixfmt
       nodePackages.nodejs
+      pcloud
       perl
       perlnavigator
       pnpm
