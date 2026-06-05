@@ -1,5 +1,5 @@
 theme:
-{ pkgs, ... }:
+{ config, pkgs, ... }:
 {
   autorandr.enable = true;
   bash = {
@@ -30,6 +30,7 @@ theme:
   fastfetch.enable = true;
   feh.enable = true;
   firefox.enable = true;
+  firefox.configPath = "${config.xdg.configHome}/mozilla/firefox";
   gh.enable = true;
   gpg.enable = true;
   htop.enable = true;

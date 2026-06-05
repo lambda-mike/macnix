@@ -103,7 +103,7 @@
 
   fonts.fontconfig.enable = true;
 
-  programs = import ./core/sage_programs.nix theme { inherit pkgs; } // {
+  programs = import ./core/sage_programs.nix theme { inherit config pkgs; } // {
     # Overwrite programs here
   };
 
