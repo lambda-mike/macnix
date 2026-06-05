@@ -34,7 +34,7 @@ close($fh);
 
 # Open the file for writing
 open($fh, '>', 'hardware-configuration.nix') or die "Could not open file: $!";
-print $fh '{ ... }: {  fileSystems = { "/".device = "/dev/fake1"; "/nix".device = "/dev/fake1"; "/home".device = "/dev/fake1"; "/data".device = "/dev/fake1"; "/snapshots".device = "/dev/fake1"; "/swap".device = "/dev/fake1"; }; }' . "\n";
+print $fh '{ ... }: {  fileSystems = { "/" = { device = "/dev/fake1"; fsType = "btrfs"; }; "/nix" = { device = "/dev/fake1"; fsType = "btrfs"; }; "/home" = { device = "/dev/fake1"; fsType = "btrfs"; }; "/data" = { device = "/dev/fake1"; fsType = "btrfs"; }; "/snapshots" = { device = "/dev/fake1"; fsType = "btrfs"; }; "/swap" = { device = "/dev/fake1"; fsType = "btrfs"; }; }; }' . "\n";
 close($fh);
 ! system 'git add hardware-configuration.nix' or die 'git add hardware-configuration.nix failed';
 

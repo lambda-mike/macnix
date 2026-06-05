@@ -13,7 +13,7 @@ perl -i -wpl -e '
   s/^(\s*)# CIFIXME_TEST.*$/${1}users.users.test.isNormalUser = true;/;
 ' sage_configuration.nix
 
-echo '{ ... }: {  fileSystems = { "/".device = "/dev/fake1"; "/nix".device = "/dev/fake1"; "/home".device = "/dev/fake1"; "/data".device = "/dev/fake1"; "/snapshots".device = "/dev/fake1"; "/swap".device = "/dev/fake1"; }; }' > hardware-configuration.nix
+echo '{ ... }: {  fileSystems = { "/" = { device = "/dev/fake1"; fsType = "btrfs"; }; "/nix" = { device = "/dev/fake1"; fsType = "btrfs"; }; "/home" = { device = "/dev/fake1"; fsType = "btrfs"; }; "/data" = { device = "/dev/fake1"; fsType = "btrfs"; }; "/snapshots" = { device = "/dev/fake1"; fsType = "btrfs"; }; "/swap" = { device = "/dev/fake1"; fsType = "btrfs"; }; }; }' > hardware-configuration.nix
 
 git add hardware-configuration.nix
 
