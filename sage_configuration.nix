@@ -35,7 +35,9 @@
     ssh = {
       enable = true;
       port = 2222;
-      shell = "/bin/cryptsetup-askpass";
+      extraConfig = ''
+        RequestTTY=force
+      '';
       hostKeys = [ "/etc/secrets/initrd/ssh_host_ed25519_key" ];
       authorizedKeys = [
         ''ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAICiZ/5BJcFcSfSfrfwT1cy52zHQP23F81AoxnB850Yol nixos@Star''
