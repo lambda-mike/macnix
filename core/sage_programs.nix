@@ -27,6 +27,7 @@ theme:
     git = true;
     icons = "auto";
   };
+  fastfetch.enable = true;
   feh.enable = true;
   firefox.enable = true;
   gh.enable = true;

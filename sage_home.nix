@@ -48,7 +48,6 @@
       krita
       libreoffice
       lsof
-      neofetch
       nerd-fonts.agave
       nerd-fonts.caskaydia-cove
       nerd-fonts.cousine

@@ -41,7 +41,6 @@
       font-awesome
       # git-crypt
       # glab
-      neofetch
       nil
       nixfmt
       nodePackages.nodejs
