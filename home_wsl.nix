@@ -32,7 +32,7 @@
         glab
         nil
         nixfmt
-        nodePackages.nodejs
+        nodejs
         pnpm
         # Python LSP
         python312Packages.pylsp-mypy

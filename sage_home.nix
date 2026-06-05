@@ -65,7 +65,7 @@
       nerd-fonts.ubuntu-mono
       nil
       nixfmt
-      nodePackages.nodejs
+      nodejs
       pcloud
       perl
       perlnavigator
