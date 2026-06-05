@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-24.04
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v5
+        uses: actions/checkout@v6
 
       - name: Install Nix
         uses: cachix/install-nix-action@v31
@@ -28,12 +28,12 @@ jobs:
     needs: check-flake
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v5
+        uses: actions/checkout@v6
 
       - name: Install Nix
         uses: cachix/install-nix-action@v31
         with:
-          nix_path: nixpkgs=channel:nixos-25.05
+          nix_path: nixpkgs=channel:nixos-26.05
 
       - name: Set configuration in flake.nix
         run: nix-shell -p perl --run ./ci_configure_flake.sh
@@ -47,7 +47,7 @@ jobs:
     needs: check-flake
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v5
+        uses: actions/checkout@v6
 
       - name: Install Nix
         uses: cachix/install-nix-action@v31
