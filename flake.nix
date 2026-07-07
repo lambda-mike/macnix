@@ -80,6 +80,8 @@
           theme = (import ./themes.nix).green;
           windowManager = builtins.abort "TODO set windowManager";
           stateVersion = builtins.abort "TODO set stateVersion to installed nixos version";
+          # FIXME user
+          kioskUser = "kiosk";
         };
       in {
         ${sage.hostname} = nixpkgs.lib.nixosSystem {
@@ -92,6 +94,7 @@
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
               home-manager.users.${sage.user} = (import ./sage_home.nix { inherit (sage) helixTheme user theme windowManager stateVersion; });
+              home-manager.users.${sage.kioskUser} = (import ./kiosk_home.nix { inherit (sage) stateVersion; user = sage.kioskUser; });
               # Optionally, use home-manager.extraSpecialArgs to pass
               # arguments to home.nix
             }

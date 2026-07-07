@@ -193,6 +193,7 @@ ClientAliveInterval 100
 
   services.xserver.displayManager.lightdm.enable = true;
   services.xserver.windowManager.leftwm.enable = true;
+  services.desktopManager.plasma6.enable = true;
 
   system.autoUpgrade = {
     allowReboot = false;
@@ -235,6 +236,17 @@ ClientAliveInterval 100
     # FIXME Phase2 Uncomment once fish is installed using home-manager
     # shell = "${pkgs.fish}/bin/fish";
     uid = 1000;
+  };
+  # FIXME EDIT
+  users.users.kiosk = {
+    createHome = true;
+    # uucp is needed by Bazecor do flash Dygma keyboards
+    extraGroups = [ "audio" "networkmanager" "video" ];
+    isNormalUser = true;
+    hashedPassword = "";
+    # FIXME Phase2 Uncomment once fish is installed using home-manager
+    # shell = "${pkgs.fish}/bin/fish";
+    uid = 1100;
   };
 
   # Pkgs
