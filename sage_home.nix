@@ -43,6 +43,7 @@
       font-awesome
       gimp
       # git-crypt
+      gitu
       glab
       julia
       krita

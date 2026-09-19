@@ -27,6 +27,7 @@
       fd
       font-awesome
       git-crypt
+      gitu
       glab
       nil
       nixfmt
