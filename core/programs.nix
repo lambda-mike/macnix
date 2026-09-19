@@ -9,6 +9,7 @@
   };
   bottom.enable = true;
   bun.enable = true;
+  ec.enable = true;
   emacs.enable = true;
   eza = {
     enable = true;

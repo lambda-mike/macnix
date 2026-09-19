@@ -21,6 +21,7 @@ theme:
     enableZshIntegration = false;
     nix-direnv.enable = true;
   };
+  ec.enable = true;
   emacs.enable = true;
   eza = {
     enable = true;
