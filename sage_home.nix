@@ -82,6 +82,7 @@
       scrot
       shellcheck
       symbola
+      tig
       tokei
       tree
       typescript

@@ -41,6 +41,7 @@
       rustup
       screen
       shellcheck
+      tig
       tokei
       typescript
       typescript-language-server
