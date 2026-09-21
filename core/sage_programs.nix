@@ -45,7 +45,9 @@ theme:
   };
   rofi = {
     enable = true;
-    font = "${theme.font} 14";
+    settings = {
+        font = "${theme.font} 14";
+    };
     theme = theme.rofi;
   };
   skim.enable = true;
