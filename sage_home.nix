@@ -34,7 +34,6 @@
       azure-cli
       brave
       cloudflared
-      cryfs
       delta
       dust
       duf
