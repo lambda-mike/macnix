@@ -6,8 +6,10 @@
 
     # nixpkgs-unstable
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-26.05";
+    # git+https://github.com/NixOS/patchelf?ref=master&rev=f34751b88bd07d7f44f5cd3200fb4122bf916c7e
     nixpkgs-darwin.url = "github:NixOS/nixpkgs/nixpkgs-26.05-darwin";
 
+    # for nixpkgs-unstable "github:nix-darwin/nix-darwin/master";
     nix-darwin.url = "github:nix-darwin/nix-darwin/nix-darwin-26.05";
     nix-darwin.inputs.nixpkgs.follows = "nixpkgs-darwin";
 
