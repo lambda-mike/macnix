@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
 
-readonly poweroffO="S(h)utdown"
+readonly poweroffO="SHutdo(w)n"
 readonly rebootO="(r)eboot"
 readonly suspendO="(s)uspend"
-readonly hibernateO="(H)ibe_nate"
+readonly hibernateO="(h)ibeRnate"
 readonly lockO="(l)ock"
 readonly exitO="e(x)it"
 
