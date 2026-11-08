@@ -70,6 +70,8 @@
       perl
       perlnavigator
       pnpm
+      # enable for 26.11
+      # proton-drive-cli
       proton-pass-cli
       python312
       # Python LSP
