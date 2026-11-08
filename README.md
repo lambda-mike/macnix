@@ -56,3 +56,11 @@ To update flake inputs more granularly: `nix flake lock --update-input <input>`
 Use determinate nix daemon to ugrade nix:
 
 `sudo determinate-nixd upgrade`
+
+## Programs
+
+### proton-pass-cli
+
+Run cloudflared tunnel without storing secrets on disk:
+
+`proton-pass-cli -- run --env-file .env -- bash -c 'cloudflared tunnel run --token $TOKEN'`

@@ -70,6 +70,7 @@
       perl
       perlnavigator
       pnpm
+      proton-pass-cli
       python312
       # Python LSP
       # python312Packages.pylsp-mypy
