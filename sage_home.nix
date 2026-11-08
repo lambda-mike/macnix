@@ -20,6 +20,7 @@
     ./programs/keychain.nix
     ./programs/tmux.nix
     ./services/gpg-agent.nix
+    ./services/ollama.nix
     ./services/redshift.nix
     ./services/screen-locker.nix
     (import ./services/polybar.nix { inherit theme windowManager; })
