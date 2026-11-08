@@ -2,8 +2,6 @@
   description = "MacNix configuration";
 
   inputs = {
-    nixos-hardware.url = "github:NixOS/nixos-hardware/master";
-
     # nixpkgs-unstable
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-26.05";
     # git+https://github.com/NixOS/patchelf?ref=master&rev=f34751b88bd07d7f44f5cd3200fb4122bf916c7e
@@ -16,6 +14,9 @@
     # master
     home-manager.url = "github:nix-community/home-manager/release-26.05";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
+
+    nixos-hardware.url = "github:NixOS/nixos-hardware/master";
+    nixos-hardware.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   outputs =
