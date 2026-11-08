@@ -53,6 +53,10 @@ theme:
   tealdeer.enable = true;
   vscode.enable = true;
   zathura.enable = true;
+  zed-editor = {
+    enable = true;
+    installRemoteServer = true;
+  };
   zellij.enable = true;
   zoxide = {
     enable = true;
