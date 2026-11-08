@@ -45,6 +45,7 @@
       # git-crypt
       gitu
       glab
+      goose-cli
       julia
       krita
       libreoffice
