@@ -147,7 +147,7 @@
       shellInit = ''
         set -g -x fish_greeting 'Let the λ force be with you! :-)'
         set -g -x fish_key_bindings fish_vi_key_bindings
-        set -g -x BROWSER brave
+        set -g -x BROWSER ${pkgs.brave}/bin/brave
         set -g -x SHELL fish
         set -g -x NNN_COLORS '#283fe21b;2341'
         set -g -x NNN_OPTS 'd'
