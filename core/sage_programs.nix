@@ -14,6 +14,7 @@ theme:
   };
   bottom.enable = true;
   broot.enable = true;
+  btop.enable = true;
   bun.enable = true;
   chromium.enable = true;
   direnv = {
