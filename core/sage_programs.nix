@@ -44,6 +44,7 @@ theme:
     enable = true;
   };
   obs-studio.enable = true;
+  password-store.enable = true;
   ripgrep = {
     enable = true;
   };

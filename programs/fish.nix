@@ -152,6 +152,7 @@
         set -g -x NNN_COLORS '#283fe21b;2341'
         set -g -x NNN_OPTS 'd'
         set -g -x NNN_PLUG 'b:-_bat $nnn;c:-_copy-to-clip $nnn*;e:_emacs $nnn*;f:-_feh $nnn*;g:_|gimp $nnn;i:-_viu $nnn;k:_kak $nnn*;v:_|vlc $nnn;z:_|zathura $nnn'
+        set -g -x PROTON_DRIVE_CREDENTIALS_STORE pass
       '';
     };
   };
