@@ -39,17 +39,25 @@ nix run home-manager/master -- switch --flake .
 
 ## Update
 
-### nix-darwin
+To update flake inputs:
 
-1. `nix flake update`
+`nix flake update`
 
 In Git repo: `nix flake update --commit-lock-file` can automatically commit the lock file changes.
 
-2. `darwin-rebuild switch --flake <flake-uri>`
+To update flake inputs more granularly: `nix flake lock --update-input <input>`
+
+### NixOS
+
+Update system after modifications:
+
+`sudo nixos-rebuild switch --flake .#kiosk`
+
+### nix-darwin
+
+`darwin-rebuild switch --flake <flake-uri>`
 
 `<flake-uri>` could be: `~/macnix.#myhostname` or simply `.` when running from flake root folder.
-
-To update flake inputs more granularly: `nix flake lock --update-input <input>`
 
 ### nix
 
