@@ -67,6 +67,9 @@
             space.w.c = "wclose";
             space.c = "toggle_comments";
             space.m.i = ":toggle-option lsp.display-inlay-hints";
+            space.m.c.l = ":pipe-to xsel -ib";
+            space.m.c.m = ":pipe-to pbcopy";
+            space.m.c.w = ":echo TODO copy to clipboard on windows";
             space.m.f.c = ":pipe pnpm exec prettier --parser css --loglevel silent";
             space.m.f.h = ":pipe pnpm exec prettier --parser html --loglevel silent";
             space.m.f.s = ":pipe pnpm exec prettier --parser scss --loglevel silent";
